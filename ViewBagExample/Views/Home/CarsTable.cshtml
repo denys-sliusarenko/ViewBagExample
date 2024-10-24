@@ -1,8 +1,27 @@
 ﻿@{
-    ViewData["Title"] = "Car table";
+    ViewData["Title"] = "Cars table";
 }
-
 
 <h1>@ViewData["Title"]</h1>
 
-<p>My cars</p>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Car car in ViewBag.Cars)
+        {
+            <tr>
+                <td>
+                    <p>@car.Id</p>
+                </td>
+                <td>
+                    <p>@car.Name</p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -25,7 +25,13 @@ namespace ViewBagExample.Controllers
 
         public IActionResult CarsTable()
         {
-            ViewBag.Cars = new List<string> { "Бразилия", "Аргентина", "Уругвай", "Чили" };
+            var cars = new List<Car>();
+            for (int i = 0; i < 10; i++)
+            {
+                cars.Add(new Car() { Id = Guid.NewGuid(), Name = $"Car{i + 1}" });
+            }
+
+            ViewBag.Cars = cars;
 
             return View();
         }
