@@ -1,0 +1,10 @@
+﻿@model RegexEmail
+
+@using (Html.BeginForm("ValideRegexEmail", "Regex", FormMethod.Post))
+{
+    <div>
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control"})<br />
+        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })<br />
+        <input type="submit" class="btn btn-primary" value="Send" />
+    </div>
+} 
