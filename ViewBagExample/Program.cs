@@ -1,4 +1,7 @@
+using ViewBagExample.Filters;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped<LogActionFilter>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -23,9 +26,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-//app.MapControllerRoute(
-//    name: "my_route",
-//    pattern: "{controller}/{action}/{id?}");
 
 app.Run();

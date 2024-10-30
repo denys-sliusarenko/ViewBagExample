@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ViewBagExample.Filters;
 using ViewBagExample.Models;
 
 namespace ViewBagExample.Controllers
@@ -10,6 +11,7 @@ namespace ViewBagExample.Controllers
             return View();
         }
 
+        [ServiceFilter(typeof(LogActionFilter))]
         public IActionResult ValideRegexEmail([FromForm] RegexEmail model)
         {
             if (!ModelState.IsValid)
